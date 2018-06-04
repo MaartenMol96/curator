@@ -12,6 +12,8 @@ ADD tasks/optimize-indices.sh /etc/periodic/
 ADD tasks/purge-old-indices.sh /etc/periodic/
 
 RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /etc/periodic/purge-old-indices.sh
+RUN chmod +x /etc/periodic/optimize-indices.sh
 
 RUN printf "\n*/5\t*\t*\t*\t*\t/etc/periodic/purge-old-indices.sh" >> /etc/crontabs/root
 RUN printf "\n*/5\t*\t*\t*\t*\t/etc/periodic/optimize-indices.sh" >> /etc/crontabs/root
